@@ -50,15 +50,16 @@ function getInterval(start, end) {
 
  
 
-  day = Math.round(interval / 60 / 60 / 24);
 
-  hour = Math.round(interval / 60 / 60 % 24);
+				var day = parseInt(interval/60/60/24);
 
-  minute = Math.round(interval / 60 % 60);
+				var hour = parseInt((interval/60/60/24 - day)*24)
 
-  second = Math.round(interval % 60);
+				var minute = parseInt(((interval/60/60/24 - day)*24-hh)*60)
 
- 
+				var second = parseInt((((interval/60/60/24 - day)*24-hh)*60-mm)*60)
+
+				var ms = num % 1000
 
   return {
 
