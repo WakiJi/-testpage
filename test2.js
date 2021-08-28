@@ -34,8 +34,9 @@
 
 				var hh = parseInt((num/1000/60/60/24 - day)*24)
 
-				var mm = parseInt(((num/1000/60/60/24 - day)*24-hh)*60)
+				var mm = parseInt(((num/1000/60/60/24 - day)*24-hour)*60)
 
-				var ss = parseInt((((num/1000/60/60/24 - day)*24-hh)*60-mm)*60)
+				var ss = parseInt((((num/1000/60/60/24 - day)*24-hour)*60-minute)*60)
 
 				var ms = num % 1000
+			}

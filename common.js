@@ -46,7 +46,7 @@ function getInterval(start, end) {
 
   // interval = interval / 1000;
 
-  interval /= 1000;
+  interval =interval / 1000;
 
  
 
@@ -55,11 +55,11 @@ function getInterval(start, end) {
 
 				var hour = parseInt((interval/60/60/24 - day)*24)
 
-				var minute = parseInt(((interval/60/60/24 - day)*24-hh)*60)
+				var minute = parseInt(((interval/60/60/24 - day)*24-hour)*60)
 
-				var second = parseInt((((interval/60/60/24 - day)*24-hh)*60-mm)*60)
+				var second = parseInt((((interval/60/60/24 - day)*24-hour)*60-minute)*60)
 
-				var ms = num % 1000
+				var ms = interval % 1000
 
   return {
 
