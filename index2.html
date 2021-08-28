@@ -116,6 +116,36 @@
 
         <script>
 
+function my$(id) {
+
+  return document.getElementById(id);
+
+}
+
+ 
+
+// 处理innerText和textContent的兼容性问题
+
+// 设置标签之间的内容
+
+function setInnerText(element, content) {
+
+  // 判断当前浏览器是否支持 innerText
+
+  if (typeof element.innerText === 'string') {
+
+    element.innerText = content;
+
+  } else {
+
+    element.textContent = content;
+
+  }
+
+}
+
+ 
+
 //			指定日期倒计时:距离高考还有多久
 
 			var obj = document.getElementById("clock");
@@ -157,10 +187,22 @@
 				var second = parseInt((((num/1000/60/60/24 - day)*24-hh)*60-mm)*60)
 
 				var ms = num % 1000
+return {
+
+    day: day,
+
+    hour: hour,
+
+    minute: minute,
+
+    second: second
+
+  }
 
 				
 			
-
+</script>
+<script>
                 setInnerText(daySpan, time.day+'天');
 
                 setInnerText(hhSpan, time.hour+'时');
