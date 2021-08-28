@@ -104,112 +104,49 @@
 
                 <strong><span id="day">**天</span></strong>
 
-                <strong><span id="hh">**时</span></strong>
+                <strong><span id="hour">**时</span></strong>
 
-                <strong><span id="mm">**分</span></strong>
+                <strong><span id="minute">**分</span></strong>
 
-                <strong><span id="ss">**秒</span></strong>
+                <strong><span id="second">**秒</span></strong>
 
             </div>
 
         </div>
 
+        <script src="common.js"></script>
+
         <script>
 
-function my$(id) {
+            var daySpan = my$('day');
 
-  return document.getElementById(id);
+            var hourSpan = my$('hour');
 
-}
+            var minuteSpan = my$('minute');
 
- 
+            var secondSpan = my$('second');
 
-// 处理innerText和textContent的兼容性问题
+            TimeRow();
 
-// 设置标签之间的内容
-
-function setInnerText(element, content) {
-
-  // 判断当前浏览器是否支持 innerText
-
-  if (typeof element.innerText === 'string') {
-
-    element.innerText = content;
-
-  } else {
-
-    element.textContent = content;
-
-  }
-
-}
+            setInterval(TimeRow, 1000)
 
  
 
-//			指定日期倒计时:距离高考还有多久
+            function TimeRow() {
 
-			var obj = document.getElementById("clock");
+                var end = new Date('2022-06-07 08:00:00');
 
-			var endTime = new Date();
+                var start = new Date();
 
-			//设置月份5月1号，参数1十月份，月份是从0开始，参数2是天
+                var time = getInterval(start, end);
 
-			//不清楚的可以去看看 http://www.runoob.com/jsref/jsref-setmonth.html
-                        endTime.setYear(2022);
-			endTime.setMonth(5,7);
-
-			//设置小时，分钟，秒，毫秒
-
-			//不清楚的可以去看看 http://www.runoob.com/jsref/jsref-sethours.html
-
-			endTime.setHours(8,0,0,0);
-
-			//定时器一直重复执行
-
-			//不清除的可以去看看 http://www.runoob.com/jsref/met-win-setinterval.html
-
-			window.setInterval(myFun,1);
-
-			function myFun(){
-
-				var startTime = new Date();
-
-//				思路很简单,用设置的未来时间5月1号减去现在的时间,然后转换成天数,小时,分钟,秒数
-
-				var num = endTime.getTime()-startTime.getTime();
-
-				var day = parseInt(num/1000/60/60/24);
-
-				var hour = parseInt((num/1000/60/60/24 - day)*24)
-
-				var minute = parseInt(((num/1000/60/60/24 - day)*24-hh)*60)
-
-				var second = parseInt((((num/1000/60/60/24 - day)*24-hh)*60-mm)*60)
-
-				var ms = num % 1000
-return {
-
-    day: day,
-
-    hour: hour,
-
-    minute: minute,
-
-    second: second
-
-  }
-
-				
-			
-</script>
-<script>
                 setInnerText(daySpan, time.day+'天');
 
-                setInnerText(hhSpan, time.hour+'时');
+                setInnerText(hourSpan, time.hour+'时');
 
-                setInnerText(mmSpan, time.minute+'分');
+                setInnerText(minuteSpan, time.minute+'分');
 
-                setInnerText(ssSpan, time.second+'秒');
+                setInnerText(secondSpan, time.second+'秒');
 
             }
 
