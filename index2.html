@@ -150,11 +150,11 @@
 
 				var day = parseInt(num/1000/60/60/24);
 
-				var hh = parseInt((num/1000/60/60/24 - day)*24)
+				var hour = parseInt((num/1000/60/60/24 - day)*24)
 
-				var mm = parseInt(((num/1000/60/60/24 - day)*24-hh)*60)
+				var minute = parseInt(((num/1000/60/60/24 - day)*24-hh)*60)
 
-				var ss = parseInt((((num/1000/60/60/24 - day)*24-hh)*60-mm)*60)
+				var second = parseInt((((num/1000/60/60/24 - day)*24-hh)*60-mm)*60)
 
 				var ms = num % 1000
 
@@ -163,11 +163,11 @@
 
                 setInnerText(daySpan, time.day+'天');
 
-                setInnerText(hhSpan, time.hh+'时');
+                setInnerText(hhSpan, time.hour+'时');
 
-                setInnerText(mmSpan, time.mm+'分');
+                setInnerText(mmSpan, time.minute+'分');
 
-                setInnerText(ssSpan, time.ss+'秒');
+                setInnerText(ssSpan, time.second+'秒');
 
             }
 
