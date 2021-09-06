@@ -1,0 +1,236 @@
+</Author:Wakiji@github>
+
+<html lang="zh-cn">
+
+ 
+
+    <head>
+
+        <meta charset="UTF-8">
+
+        <meta name="viewport", width="100%", height="100%" , initial-scale=0.5>
+
+        <style>
+
+            body{
+                
+                background: #000;
+
+                font-family: "HarmonyOS Sans","Microsoft YaHei";
+
+            }
+
+            #box {
+
+                display: flex;
+
+                justify-content: center;
+
+                align-items: center;
+
+                flex-direction: column;
+
+            }
+
+ 
+
+            #box h1 {
+
+                letter-spacing: 10px;
+
+                font-weight: 500;
+
+                font-size: 110px;
+
+                color: #fff;
+
+            }
+
+ 
+
+            #time {
+
+                display: flex;
+
+                flex-direction: row;
+
+                line-height: 80px;
+
+            }
+
+ 
+
+            #time span {
+
+                font-size: 80px;
+
+                color: #fff;
+
+            }
+
+ 
+
+            #time strong {
+
+                text-align: center;
+
+                margin-left: 40px;
+
+                background-color: #3f5174;
+
+                border-radius: 25px;
+
+                width: 250px;
+
+                height: 100px;
+
+                display: block;
+
+            }
+
+            #container {
+
+                height: 100%;
+
+                display: block;
+ 
+                margin: auto;
+ 
+                position: relative;
+
+}
+
+</style>
+
+</head>
+
+
+<div class="container">
+    <svg xmlns="https://www.w3.org/2000/svg" width="100%" height="100%">
+        <defs>
+            <filter id="b">
+                <feGaussianBlur stdDeviation="28.6" />
+            </filter>
+            <radialGradient id="l" cx="50%" cy="0%" fy="-50%" r="82%">
+                <stop offset="40%" style="stop-color:#fff; stop-opacity:1;" />
+                <stop offset="90%" style="stop-color:#fff; stop-opacity:.5;" />
+                <stop offset="100%" style="stop-color:#fff; stop-opacity:0" />
+            </radialGradient>
+            <radialGradient id="l2" cx="50%" cy="0%" fy="-45%" r="75%">
+                <stop offset="40%" style="stop-color:#fff; stop-opacity:1;" />
+                <stop offset="90%" style="stop-color:#fff; stop-opacity:.5;" />
+                <stop offset="100%" style="stop-color:#fff; stop-opacity:0" />
+            </radialGradient>
+            <radialGradient id="l3" cx="50%" cy="0%" fy="-40%" r="65%">
+                <stop offset="40%" style="stop-color:#fff; stop-opacity:1;" />
+                <stop offset="90%" style="stop-color:#fff; stop-opacity:.5;" />
+                <stop offset="100%" style="stop-color:#fff; stop-opacity:0" />
+            </radialGradient>
+            <linearGradient id="r" x2="100%" y2="0">
+                <stop offset="0%" style="stop-color:#860d0d;" />
+                <stop offset="33%" style="stop-color:#10689f;" />
+                <stop offset="66%" style="stop-color:#dad716;" />
+                <stop offset="100%" style="stop-color:#d20000;" />
+            </linearGradient>
+            <mask id="m" maskUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%">
+                <g filter="url(#b)">
+                    <rect width="5%" height="100%" fill="url(#l)" />
+                    <rect x="5%" width="5%" height="100%" fill="url(#l)" />
+                    <rect x="10%" width="5%" height="100%" fill="url(#l3)" />
+                    <rect x="15%" width="5%" height="100%" fill="url(#l2)" />
+                    <rect x="20%" width="5%" height="100%" fill="url(#l3)" />
+                    <rect x="25%" width="5%" height="100%" fill="url(#l)" />
+                    <rect x="30%" width="5%" height="100%" fill="url(#l2)" />
+                    <rect x="35%" width="5%" height="100%" fill="url(#l)" />
+                    <rect x="40%" width="5%" height="100%" fill="url(#l2)" />
+                    <rect x="45%" width="5%" height="100%" fill="url(#l3)" />
+                    <rect x="50%" width="5%" height="100%" fill="url(#l2)" />
+                    <rect x="55%" width="5%" height="100%" fill="url(#l)" />
+                    <rect x="60%" width="5%" height="100%" fill="url(#l3)" />
+                    <rect x="65%" width="5%" height="100%" fill="url(#l)" />
+                    <rect x="70%" width="5%" height="100%" fill="url(#l2)" />
+                    <rect x="75%" width="5%" height="100%" fill="url(#l2)" />
+                    <rect x="80%" width="5%" height="100%" fill="url(#l3)" />
+                    <rect x="85%" width="5%" height="100%" fill="url(#l)" />
+                    <rect x="90%" width="5%" height="100%" fill="url(#l2)" />
+                    <rect x="95%" width="5%" height="100%" fill="url(#l3)" />
+                </g>
+            </mask>
+        </defs>
+        <rect fill="url(#r)" width="100%" height="100%" mask="url(#m)" />
+    </svg>
+</div>
+
+
+
+        <title>高考倒计时</title>
+
+    </head>
+
+
+        <div id="box">
+
+            <h1>距离 2022 年高考还有</h1>
+
+            <p></p>
+
+            <div id="time">
+
+                <strong><span id="day">**天</span></strong>
+
+                <strong><span id="hour">**时</span></strong>
+
+                <strong><span id="minute">**分</span></strong>
+
+                <strong><span id="second">**秒</span></strong>
+
+            </div>
+
+        </div>
+
+        <script src="common.js"></script>
+
+        <script>
+
+            var daySpan = my$('day');
+
+            var hourSpan = my$('hour');
+
+            var minuteSpan = my$('minute');
+
+            var secondSpan = my$('second');
+
+            TimeRow();
+
+            setInterval(TimeRow, 1000)
+
+ 
+
+            function TimeRow() {
+
+                var end = new Date('2022-06-07 09:00:00');    #高考時間
+
+                var start = new Date();    #取本地時間
+
+                var time = getInterval(start, end);
+
+                setInnerText(daySpan, time.day+'天');
+
+                setInnerText(hourSpan, time.hour+'时');
+
+                setInnerText(minuteSpan, time.minute+'分');
+
+                setInnerText(secondSpan, time.second+'秒');
+
+            }
+
+        </script>
+
+
+
+
+    </body>
+
+ 
+
+</html>
