@@ -4,7 +4,11 @@ function my$(id) {
 
 }
 
- 
+window.setInterval(function(){
+
+    setTimeout("self.location.reload();",10000);
+
+}
 
 // 处理innerText和textContent的兼容性问题
 
