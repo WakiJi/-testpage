@@ -73,7 +73,7 @@ body {
   overflow: hidden;
 }
 
-.pyro > .before, .pyro > .after {
+.fire > .start, .fire > .end {
   position: absolute;
   width: 5px;
   height: 5px;
@@ -82,7 +82,7 @@ body {
   @include animation((1s bang ease-out infinite backwards, 1s gravity ease-in infinite backwards, 5s position linear infinite backwards));
 }
     
-.pyro > .after {
+.fire > .end {
   @include animation-delay((1.25s, 1.25s, 1.25s));
   @include animation-duration((1.25s, 1.25s, 6.25s));
 }
