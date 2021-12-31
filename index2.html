@@ -142,6 +142,15 @@
     </head>
 <canvas id='myCanvas' width='100%' height='100%'></canvas>
 <script>
+$(window).resize(resizeCanvas);
+function resizeCanvas()
+
+{canvas.attr("width", $(window).get(0).innerWidth);
+canvas.attr("height", $(window).get(0).innerHeight);
+context.fillRect(0, 0, canvas.width(), canvas.height());};
+resizeCanvas();
+</script>
+<script>
 const max_fireworks = 5,
   max_sparks = 50;
 let canvas = document.getElementById('myCanvas');
