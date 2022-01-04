@@ -10,7 +10,7 @@ window.location.reload();
 
 }
 
-setTimeout('myrefresh()',10000); 
+setTimeout('myrefresh()',1000); 
 
 // 处理innerText和textContent的兼容性问题
 
