@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport", width="100%", height="100%" , initial-scale=0.5>
+        <link ref="stylesheet"  type="text/css" href="../firework.css" />
+        <tittle>高考倒计时</tittle>
+        <style>
+            body {               
+                background: #000;
+                overflow : hidden;
+                font-family: "HarmonyOS Sans","Microsoft YaHei";
+                align-items: start;
+            }
+            #box {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+            #box h1 {
+                letter-spacing: 10px;
+                font-weight: 500;
+                font-size: 110px;
+                color: #fff;
+            }
+             #box h2 {
+                letter-spacing: 5px;
+                font-weight: 280;
+                font-size: 40px;
+                color: #ffffff;
+            }
+            h3 {
+                display: flex;
+                flex-direction: column;
+                letter-spacing: 0px;
+                font-weight: 240;
+                font-size: 30px;
+                color: #ffffff; 
+            }
+            #box h4 {
+                letter-spacing: 0px;
+                font-weight: 50;
+                font-size: 10px;
+                color: #ffffff;
+            }
+            #box h5 {           
+                letter-spacing: 1px;                
+                font-weight: 160;                
+                font-size: 15px;               
+                color:#ffffff;               
+            }
+            #time {
+                display: flex;
+                flex-direction: row;
+                line-height: 115px;
+            }
+            #time span {
+                font-size: 80px;
+                color: #fff;
+            }
+            #time strong {
+                text-align: center;
+                margin-left: 40px;
+                background-color: #3f5174;
+                border-radius: 25px;
+                width: 280px;
+                height: 120px;
+                display: block;
+            }
+            .rmline {
+                text-decoration:line-through
+            }
+            .container {
+                height: 100%;
+                display: block;
+                margin: auto;
+                position: relative;
+             }
+</style>
+
+</head>
+
+<div class="fire">
+<div class="start">
+<div class="container">
+    <svg xmlns="https://www.w3.org/2000/svg" width="100%" height="100%">
+        <defs>
+            <filter id="b">
+                <feGaussianBlur stdDeviation="28.6" />
+            </filter>
+            <radialGradient id="l" cx="50%" cy="0%" fy="-50%" r="82%">
+                <stop offset="40%" style="stop-color:#fff; stop-opacity:1;" />
+                <stop offset="90%" style="stop-color:#fff; stop-opacity:.5;" />
+                <stop offset="100%" style="stop-color:#fff; stop-opacity:0" />
+            </radialGradient>
+            <radialGradient id="l2" cx="50%" cy="0%" fy="-45%" r="75%">
+                <stop offset="40%" style="stop-color:#fff; stop-opacity:1;" />
+                <stop offset="90%" style="stop-color:#fff; stop-opacity:.5;" />
+                <stop offset="100%" style="stop-color:#fff; stop-opacity:0" />
+            </radialGradient>
+            <radialGradient id="l3" cx="50%" cy="0%" fy="-40%" r="65%">
+                <stop offset="40%" style="stop-color:#fff; stop-opacity:1;" />
+                <stop offset="90%" style="stop-color:#fff; stop-opacity:.5;" />
+                <stop offset="100%" style="stop-color:#fff; stop-opacity:0" />
+            </radialGradient>
+            <linearGradient id="r" x2="100%" y2="0">
+                <stop offset="0%" style="stop-color:#860d0d;" />
+                <stop offset="33%" style="stop-color:#10689f;" />
+                <stop offset="66%" style="stop-color:#dad716;" />
+                <stop offset="100%" style="stop-color:#d20000;" />
+            </linearGradient>
+            <mask id="m" maskUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%">
+                <g filter="url(#b)">
+                    <rect width="5%" height="100%" fill="url(#l)" />
+                    <rect x="5%" width="5%" height="100%" fill="url(#l)" />
+                    <rect x="10%" width="5%" height="100%" fill="url(#l3)" />
+                    <rect x="15%" width="5%" height="100%" fill="url(#l2)" />
+                    <rect x="20%" width="5%" height="100%" fill="url(#l3)" />
+                    <rect x="25%" width="5%" height="100%" fill="url(#l)" />
+                    <rect x="30%" width="5%" height="100%" fill="url(#l2)" />
+                    <rect x="35%" width="5%" height="100%" fill="url(#l)" />
+                    <rect x="40%" width="5%" height="100%" fill="url(#l2)" />
+                    <rect x="45%" width="5%" height="100%" fill="url(#l3)" />
+                    <rect x="50%" width="5%" height="100%" fill="url(#l2)" />
+                    <rect x="55%" width="5%" height="100%" fill="url(#l)" />
+                    <rect x="60%" width="5%" height="100%" fill="url(#l3)" />
+                    <rect x="65%" width="5%" height="100%" fill="url(#l)" />
+                    <rect x="70%" width="5%" height="100%" fill="url(#l2)" />
+                    <rect x="75%" width="5%" height="100%" fill="url(#l2)" />
+                    <rect x="80%" width="5%" height="100%" fill="url(#l3)" />
+                    <rect x="85%" width="5%" height="100%" fill="url(#l)" />
+                    <rect x="90%" width="5%" height="100%" fill="url(#l2)" />
+                    <rect x="95%" width="5%" height="100%" fill="url(#l3)" />
+                </g>
+            </mask>
+        </defs>
+        <rect fill="url(#r)" width="100%" height="100%" mask="url(#m)" />
+    </svg>
+</div>
+
+<script>
+function snow() {
+            //  1、定义一片雪花模板
+            var flake = document.createElement('div');
+            // 雪花字符 ???????????
+            flake.innerHTML = '?';
+            flake.style.cssText = 'position:absolute;color:#fff;';
+
+            //获取页面的高度 相当于雪花下落结束时Y轴的位置
+            var documentHieght = window.innerHeight;
+            //获取页面的宽度，利用这个数来算出，雪花开始时left的值
+            var documentWidth = window.innerWidth;
+
+            //定义生成一片雪花的毫秒数
+            var millisec =10;
+            //2、设置第一个定时器，周期性定时器，每隔一段时间（millisec）生成一片雪花；
+            setInterval(function() { //页面加载之后，定时器就开始工作
+                //随机生成雪花下落 开始 时left的值，相当于开始时X轴的位置
+                var startLeft = Math.random() * documentWidth;
+
+                //随机生成雪花下落 结束 时left的值，相当于结束时X轴的位置
+                var endLeft = Math.random() * documentWidth;
+
+                //随机生成雪花大小
+                var flakeSize = 3 + 20 * Math.random();
+
+                //随机生成雪花下落持续时间
+                var durationTime = 4000 + 7000 * Math.random();
+
+                //随机生成雪花下落 开始 时的透明度
+                var startOpacity = 0.7 + 0.3 * Math.random();
+
+                //随机生成雪花下落 结束 时的透明度
+                var endOpacity = 0.2 + 0.2 * Math.random();
+
+                //克隆一个雪花模板
+                var cloneFlake = flake.cloneNode(true);
+
+                //第一次修改样式，定义克隆出来的雪花的样式
+                cloneFlake.style.cssText += `
+                        left: ${startLeft}px;
+                        opacity: ${startOpacity};
+                        font-size:${flakeSize}px;
+                        top:-25px;
+                            transition:${durationTime}ms;`;
+
+                //拼接到页面中
+                document.body.appendChild(cloneFlake);
+
+                //设置第二个定时器，一次性定时器，
+                //当第一个定时器生成雪花，并在页面上渲染出来后，修改雪花的样式，让雪花动起来；
+                setTimeout(function() {
+                    //第二次修改样式
+                    cloneFlake.style.cssText += `
+                                left: ${endLeft}px;
+                                top:${documentHieght}px;
+                                opacity:${endOpacity};`;
+
+                    //4、设置第三个定时器，当雪花落下后，删除雪花。
+                    setTimeout(function() {
+                        cloneFlake.remove();
+                    }, durationTime);
+                }, 0);
+
+            }, millisec);
+        }
+        snow();
+</script>
+        <div id="box">
+
+            <h2>距离 2022 年高考还有</h2>
+
+            <div id="time">
+
+                <strong><span id="day">**天</span></strong>
+
+                <strong><span id="hour">**时</span></strong>
+
+                <strong><span id="minute">**分</span></strong>
+
+                <strong><span id="second">**秒</span></strong>
+
+            </div>
+
+        <h3>Customized for LHJ.</h3>
+            
+        <div id="box">
+
+            <h5>Last Sync at 2022-01-16</h5>
+        
+            <h5>Powered By Waki@Github.</h5>
+        
+        </div>
+        </div>
+</div>
+<div class="end">
+</div>
+</div>
+
+        <!-- Cloudflare Web Analytics -->
+
+        <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eca3660b876b42d191ffcec642e6e078"}'></script>
+
+        <!-- End Cloudflare Web Analytics -->
+
+        <script src="Timer.js"></script>
+
+        <script>
+
+            var daySpan = my$('day');
+
+            var hourSpan = my$('hour');
+
+            var minuteSpan = my$('minute');
+
+            var secondSpan = my$('second');
+
+            TimeRow();
+
+            setInterval(TimeRow, 1000)
+
+ 
+
+            function TimeRow() {
+
+                var end = new Date('2022-06-07 09:00:00');
+
+                var start = new Date();
+
+                var time = getInterval(start, end);
+
+                setInnerText(daySpan, time.day+'天');
+
+                setInnerText(hourSpan, time.hour+'时');
+
+                setInnerText(minuteSpan, time.minute+'分');
+
+                setInnerText(secondSpan, time.second+'秒');
+
+            }
+
+        </script>
+
+
+
+
+    </body>
+
+ 
+
+</html>
