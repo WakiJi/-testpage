@@ -14,31 +14,31 @@
                 align-items: center;
                 flex-direction: column;
             }
-            #box h1 {
+            h1 {
                 letter-spacing: 10px;
                 font-weight: 500;
                 font-size: 110px;
                 color: #fff;
             }
-            #box h2 {
+            h2 {
                 letter-spacing: 5px;
                 font-weight: 280;
                 font-size: 40px;
                 color: #ffffff;
             }
-            #box h3 {
+            h3 {
                 letter-spacing: 0px;
                 font-weight: 240;
                 font-size: 30px;
                 color: #ffffff; 
             }
-            #box h4 {
+            h4 {
                 letter-spacing: 0px;
                 font-weight: 50;
                 font-size: 10px;
                 color: #ffffff;
             }
-            #box h5 {           
+            h5 {           
                 letter-spacing: 1px;                
                 font-weight: 160;                
                 font-size: 15px;               
@@ -69,8 +69,6 @@
 
 </head>
 
-<div id="box">
-<div id="time">
 <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
   <defs>
     <radialGradient id="Gradient1" cx="50%" cy="50%" fx="10%" fy="50%" r=".5">
@@ -216,13 +214,13 @@ function snow() {
 
                 var time = getInterval(start, end);
 
-                setInnerText(daySpan, time.day+'天');
+                setInnerText(daySpan, day+'天');
 
-                setInnerText(hourSpan, time.hour+'时');
+                setInnerText(hourSpan, hour+'时');
 
-                setInnerText(minuteSpan, time.minute+'分');
+                setInnerText(minuteSpan, minute+'分');
 
-                setInnerText(secondSpan, time.second+'秒');
+                setInnerText(secondSpan, second+'秒');
 
             }
 
