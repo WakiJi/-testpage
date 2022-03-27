@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <tittle>高考倒计时</tittle>
-        <link ref="stylesheet"  type="text/css" href="../firework.css" />
+        <link ref="stylesheet"  type="text/css" href="../style.scss" />
         <style>
             body {               
                 background: #000;
@@ -80,62 +80,40 @@
 
 </head>
 
-<div class="fire">
-<div class="start">
-<div class="container">
-    <svg xmlns="https://www.w3.org/2000/svg" width="100%" height="100%">
-        <defs>
-            <filter id="b">
-                <feGaussianBlur stdDeviation="28.6" />
-            </filter>
-            <radialGradient id="l" cx="50%" cy="0%" fy="-50%" r="82%">
-                <stop offset="40%" style="stop-color:#fff; stop-opacity:1;" />
-                <stop offset="90%" style="stop-color:#fff; stop-opacity:.5;" />
-                <stop offset="100%" style="stop-color:#fff; stop-opacity:0" />
-            </radialGradient>
-            <radialGradient id="l2" cx="50%" cy="0%" fy="-45%" r="75%">
-                <stop offset="40%" style="stop-color:#fff; stop-opacity:1;" />
-                <stop offset="90%" style="stop-color:#fff; stop-opacity:.5;" />
-                <stop offset="100%" style="stop-color:#fff; stop-opacity:0" />
-            </radialGradient>
-            <radialGradient id="l3" cx="50%" cy="0%" fy="-40%" r="65%">
-                <stop offset="40%" style="stop-color:#fff; stop-opacity:1;" />
-                <stop offset="90%" style="stop-color:#fff; stop-opacity:.5;" />
-                <stop offset="100%" style="stop-color:#fff; stop-opacity:0" />
-            </radialGradient>
-            <linearGradient id="r" x2="100%" y2="0">
-                <stop offset="0%" style="stop-color:#860d0d;" />
-                <stop offset="33%" style="stop-color:#10689f;" />
-                <stop offset="66%" style="stop-color:#dad716;" />
-                <stop offset="100%" style="stop-color:#d20000;" />
-            </linearGradient>
-            <mask id="m" maskUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%">
-                <g filter="url(#b)">
-                    <rect width="5%" height="100%" fill="url(#l)" />
-                    <rect x="5%" width="5%" height="100%" fill="url(#l)" />
-                    <rect x="10%" width="5%" height="100%" fill="url(#l3)" />
-                    <rect x="15%" width="5%" height="100%" fill="url(#l2)" />
-                    <rect x="20%" width="5%" height="100%" fill="url(#l3)" />
-                    <rect x="25%" width="5%" height="100%" fill="url(#l)" />
-                    <rect x="30%" width="5%" height="100%" fill="url(#l2)" />
-                    <rect x="35%" width="5%" height="100%" fill="url(#l)" />
-                    <rect x="40%" width="5%" height="100%" fill="url(#l2)" />
-                    <rect x="45%" width="5%" height="100%" fill="url(#l3)" />
-                    <rect x="50%" width="5%" height="100%" fill="url(#l2)" />
-                    <rect x="55%" width="5%" height="100%" fill="url(#l)" />
-                    <rect x="60%" width="5%" height="100%" fill="url(#l3)" />
-                    <rect x="65%" width="5%" height="100%" fill="url(#l)" />
-                    <rect x="70%" width="5%" height="100%" fill="url(#l2)" />
-                    <rect x="75%" width="5%" height="100%" fill="url(#l2)" />
-                    <rect x="80%" width="5%" height="100%" fill="url(#l3)" />
-                    <rect x="85%" width="5%" height="100%" fill="url(#l)" />
-                    <rect x="90%" width="5%" height="100%" fill="url(#l2)" />
-                    <rect x="95%" width="5%" height="100%" fill="url(#l3)" />
-                </g>
-            </mask>
-        </defs>
-        <rect fill="url(#r)" width="100%" height="100%" mask="url(#m)" />
-    </svg>
+<svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="Gradient1" cx="50%" cy="50%" fx="10%" fy="50%" r=".5">
+      <animate attributeName="fx" dur="34s" values="0%;3%;0%" repeatCount="indefinite" />
+      <stop offset="0%" stop-color="#ff0" />
+      <stop offset="100%" stop-color="#ff00" />
+    </radialGradient>
+    <radialGradient id="Gradient2" cx="50%" cy="50%" fx="10%" fy="50%" r=".5">
+      <animate attributeName="fx" dur="23.5s" values="0%;3%;0%" repeatCount="indefinite" />
+      <stop offset="0%" stop-color="#0ff" />
+      <stop offset="100%" stop-color="#0ff0" />
+    </radialGradient>
+    <radialGradient id="Gradient3" cx="50%" cy="50%" fx="50%" fy="50%" r=".5">
+      <animate attributeName="fx" dur="21.5s" values="0%;3%;0%" repeatCount="indefinite" />
+      <stop offset="0%" stop-color="#f0f" />
+      <stop offset="100%" stop-color="#f0f0" />
+    </radialGradient>
+  </defs>
+  <rect x="0" y="0" width="100%" height="100%" fill="url(#Gradient1)">
+    <animate attributeName="x" dur="20s" values="25%;0%;25%" repeatCount="indefinite" />
+    <animate attributeName="y" dur="21s" values="0%;25%;0%" repeatCount="indefinite" />
+    <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="17s" repeatCount="indefinite" />
+  </rect>
+  <rect x="0" y="0" width="100%" height="100%" fill="url(#Gradient2)">
+    <animate attributeName="x" dur="23s" values="-25%;0%;-25%" repeatCount="indefinite" />
+    <animate attributeName="y" dur="24s" values="0%;50%;0%" repeatCount="indefinite" />
+    <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="18s" repeatCount="indefinite" />
+  </rect>
+  <rect x="0" y="0" width="100%" height="100%" fill="url(#Gradient3)">
+    <animate attributeName="x" dur="25s" values="0%;25%;0%" repeatCount="indefinite" />
+    <animate attributeName="y" dur="26s" values="0%;25%;0%" repeatCount="indefinite" />
+    <animateTransform attributeName="transform" type="rotate" from="360 50 50" to="0 50 50" dur="19s" repeatCount="indefinite" />
+  </rect>
+</svg>
 </div>
 
 <!---- <script>
