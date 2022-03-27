@@ -186,13 +186,13 @@ function snow() {
 
                 var time = getInterval(start, end);
 
-                setInnerText(daySpan, day+'天');
+                setInnerText(daySpan, time.day+'天');
 
-                setInnerText(hourSpan, hour+'时');
+                setInnerText(hourSpan, time.hour+'时');
 
-                setInnerText(minuteSpan, minute+'分');
+                setInnerText(minuteSpan, time.minute+'分');
 
-                setInnerText(secondSpan, second+'秒');
+                setInnerText(secondSpan, time.second+'秒');
 
             }
 
