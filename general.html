@@ -15,6 +15,8 @@
                 justify-content: center;
                 align-items: center;
                 flex-direction: column;
+                text-shadow: 0 0 5px #fff;
+                mix-blend-mode: overlay;
             }
             #time {
                 display: flex;
@@ -41,6 +43,7 @@
 
 </head>
 
+<div id="box">
 <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
   <defs>
     <radialGradient id="Gradient1" cx="50%" cy="50%" fx="10%" fy="50%" r=".5">
@@ -76,10 +79,12 @@
   </rect>
 </svg>
 <h2>距离 2022 年高考还有</h2>
+<div id="time">
 <strong><span id="day">**天</span></strong>
 <strong><span id="hour">**时</span></strong>
 <strong><span id="minute">**分</span></strong>
 <strong><span id="second">**秒</span></strong>
+</div>
 <h3>Pi[π] Day.</h3>
 <h5>Last Sync at 2022-03-14</h5>     
 <h5>Powered By Waki@Github.</h5>
