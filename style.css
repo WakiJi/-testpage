@@ -1,0 +1,86 @@
+html {
+  width: 100% ;
+  height: 100% ;
+  box-sizing: border-box;
+}
+body {
+  background-color: #000;
+  overflow : hidden;
+  font-family: "HarmonyOS Sans","Microsoft YaHei";
+  place-items: center;
+  display: grid;
+  min-height: 100vh;
+  grid: 100vh / 1fr;
+}
+#box {
+  font: "HarmonyOS Sans";
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-shadow: 0 0 5px #fff; 
+  background: rgba(0, 0, 0, 0);
+  position: relative;
+  z-index: 9999;
+}
+
+#box h1 {
+    letter-spacing: 10px;
+    font-weight: 500;
+    font-size: 110px;
+    color: #fff;
+}
+#box h2 {
+    letter-spacing: 5px;
+    font-weight: 280;
+    font-size: 40px;
+    color: #ffffff;
+}
+#box h3 {
+    letter-spacing: 0px;
+    font-weight: 240;
+    font-size: 30px;
+    color: #ffffff;
+}
+#box h4 {
+    letter-spacing: 0px;
+    font-weight: 50;
+    font-size: 10px;
+    color: #ffffff;
+}
+#box h5 {           
+    letter-spacing: 1px;                
+    font-weight: 160;                
+    font-size: 15px;               
+    color:#ffffff;
+}
+
+svg {
+  position: fixed;
+  top: 0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);
+}
+
+#time {
+  display: flex;
+  flex-direction: row;
+  line-height: 115px;
+}
+#time span {
+  font-size: 80px;
+  color: #fff;
+}
+#time strong {
+  text-align: center;
+  margin-left: 40px;
+  background-color: #3f5174;
+  border-radius: 25px;
+  width: 280px;
+  height: 120px;
+  display: block;
+}
+.rmline {
+  text-decoration:line-through
+}
