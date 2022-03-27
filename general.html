@@ -3,110 +3,64 @@
     <head>
         <meta charset="UTF-8">
         <title>高考倒计时</title>
-        <style>
-            body {
-                overflow : hidden;
-                font-family: "HarmonyOS Sans","Microsoft YaHei";
-                place-items: center;
-                display: grid;
-                mix-blend-mode: overlay;
-            }
-            #box {
-                position : absolute;
-                top : 50%;
-                left : 50%;
-                display : flex;
-                flex-direction: column;
-                text-shadow: 0 0 5px #fff;
-                mix-blend-mode: overlay;
-            }
-            #time {
-                display: flex;
-position : absolute;
-                top : 50%;
-                left : 50%;
-                flex-direction: row;
-                line-height: 115px;
-                mix-blend-mode: overlay;
-            }
-            #time span {
-                font-size: 80px;
-                color: #fff;
-position : absolute;
-                top : 50%;
-                left : 50%;
-                mix-blend-mode: overlay;
-            }
-            #time strong {
-                text-align: center;
-                margin-left: 40px;
-position : absolute;
-                top : 50%;
-                left : 50%;
-                background-color: #3f5174;
-                border-radius: 25px;
-                width: 280px;
-                height: 120px;
-                display: block;
-            }
-            .rmline {
-                text-decoration:line-through
-            }
-</style>
-
+        <link rel="stylesheet" type="text/css" href="./style.css">
 </head>
+<body>
+    <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <radialGradient id="Gradient1" cx="50%" cy="50%" fx="10%" fy="50%" r=".5">
+        <animate attributeName="fx" dur="34s" values="0%;3%;0%" repeatCount="indefinite" />
+        <stop offset="0%" stop-color="#ff0" />
+        <stop offset="100%" stop-color="#ff00" />
+      </radialGradient>
+      <radialGradient id="Gradient2" cx="50%" cy="50%" fx="10%" fy="50%" r=".5">
+        <animate attributeName="fx" dur="23.5s" values="0%;3%;0%" repeatCount="indefinite" />
+        <stop offset="0%" stop-color="#0ff" />
+        <stop offset="100%" stop-color="#0ff0" />
+      </radialGradient>
+      <radialGradient id="Gradient3" cx="50%" cy="50%" fx="50%" fy="50%" r=".5">
+        <animate attributeName="fx" dur="21.5s" values="0%;3%;0%" repeatCount="indefinite" />
+        <stop offset="0%" stop-color="#f0f" />
+        <stop offset="100%" stop-color="#f0f0" />
+      </radialGradient>
+    </defs>
+    <rect x="0" y="0" width="100%" height="100%" fill="url(#Gradient1)">
+      <animate attributeName="x" dur="20s" values="25%;0%;25%" repeatCount="indefinite" />
+      <animate attributeName="y" dur="21s" values="0%;25%;0%" repeatCount="indefinite" />
+      <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="17s" repeatCount="indefinite" />
+    </rect>
+    <rect x="0" y="0" width="100%" height="100%" fill="url(#Gradient2)">
+      <animate attributeName="x" dur="23s" values="-25%;0%;-25%" repeatCount="indefinite" />
+      <animate attributeName="y" dur="24s" values="0%;50%;0%" repeatCount="indefinite" />
+      <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="18s" repeatCount="indefinite" />
+    </rect>
+    <rect x="0" y="0" width="100%" height="100%" fill="url(#Gradient3)">
+      <animate attributeName="x" dur="25s" values="0%;25%;0%" repeatCount="indefinite" />
+      <animate attributeName="y" dur="26s" values="0%;25%;0%" repeatCount="indefinite" />
+      <animateTransform attributeName="transform" type="rotate" from="360 50 50" to="0 50 50" dur="19s" repeatCount="indefinite" />
+    </rect>
+  </svg>
+    <div id="box">
+        <h2>距离 2022 年高考还有</h2>
+        <div id="time">
+        <strong><span id="day">**天</span></strong>
+        <strong><span id="hour">**时</span></strong>
+        <strong><span id="minute">**分</span></strong>
+        <strong><span id="second">**秒</span></strong>
+        </div>
+        <h3>Pi[π] Day.</h3>
+        <h5>Last Sync at 2022-03-14</h5>     
+        <h5>Powered By Waki@Github.</h5>
+        </div>
+        </body>
 
-<div id="box">
-<svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
-  <defs>
-    <radialGradient id="Gradient1" cx="50%" cy="50%" fx="10%" fy="50%" r=".5">
-      <animate attributeName="fx" dur="34s" values="0%;3%;0%" repeatCount="indefinite" />
-      <stop offset="0%" stop-color="#ff0" />
-      <stop offset="100%" stop-color="#ff00" />
-    </radialGradient>
-    <radialGradient id="Gradient2" cx="50%" cy="50%" fx="10%" fy="50%" r=".5">
-      <animate attributeName="fx" dur="23.5s" values="0%;3%;0%" repeatCount="indefinite" />
-      <stop offset="0%" stop-color="#0ff" />
-      <stop offset="100%" stop-color="#0ff0" />
-    </radialGradient>
-    <radialGradient id="Gradient3" cx="50%" cy="50%" fx="50%" fy="50%" r=".5">
-      <animate attributeName="fx" dur="21.5s" values="0%;3%;0%" repeatCount="indefinite" />
-      <stop offset="0%" stop-color="#f0f" />
-      <stop offset="100%" stop-color="#f0f0" />
-    </radialGradient>
-  </defs>
-  <rect x="0" y="0" width="100%" height="100%" fill="url(#Gradient1)">
-    <animate attributeName="x" dur="20s" values="25%;0%;25%" repeatCount="indefinite" />
-    <animate attributeName="y" dur="21s" values="0%;25%;0%" repeatCount="indefinite" />
-    <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="17s" repeatCount="indefinite" />
-  </rect>
-  <rect x="0" y="0" width="100%" height="100%" fill="url(#Gradient2)">
-    <animate attributeName="x" dur="23s" values="-25%;0%;-25%" repeatCount="indefinite" />
-    <animate attributeName="y" dur="24s" values="0%;50%;0%" repeatCount="indefinite" />
-    <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="18s" repeatCount="indefinite" />
-  </rect>
-  <rect x="0" y="0" width="100%" height="100%" fill="url(#Gradient3)">
-    <animate attributeName="x" dur="25s" values="0%;25%;0%" repeatCount="indefinite" />
-    <animate attributeName="y" dur="26s" values="0%;25%;0%" repeatCount="indefinite" />
-    <animateTransform attributeName="transform" type="rotate" from="360 50 50" to="0 50 50" dur="19s" repeatCount="indefinite" />
-  </rect>
-</svg>
-<h2>距离 2022 年高考还有</h2>
-<div id="time">
-<strong><span id="day">**天</span></strong>
-<strong><span id="hour">**时</span></strong>
-<strong><span id="minute">**分</span></strong>
-<strong><span id="second">**秒</span></strong>
-</div>
-<h3>Pi[π] Day.</h3>
-<h5>Last Sync at 2022-03-14</h5>     
-<h5>Powered By Waki@Github.</h5>
-</div>
+
+
 
 <!---- <script>
 function snow() {
             //  1、定义一片雪花模板
-            var flake = document.createElement('div');
+            var flake = document.creatediv('div');
             // 雪花字符 ❄️❄️❄️❄️❄️❄️❄️❄️
             flake.innerHTML = '🥰';
             flake.style.cssText = 'position:absolute;color:#fff;';
