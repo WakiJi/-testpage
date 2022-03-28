@@ -16,10 +16,10 @@ body {
   font: "HarmonyOS Sans";
   display: flex;
   align-items: center;
-  flex-direction: column;
+  flex-direction: none;
   text-shadow: 0 0 5px #fff; 
   background: rgba(0, 0, 0, 0);
-  position: static;
+  position: relative;
 }
 
 #box h1 {
