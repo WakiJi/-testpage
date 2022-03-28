@@ -14,7 +14,7 @@ body {
 }
 #box {
   font: "HarmonyOS Sans";
-  display: inline-block;
+  display: flex;
   align-items: center;
   flex-direction: column;
   text-shadow: 0 0 5px #fff; 
