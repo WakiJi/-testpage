@@ -19,8 +19,6 @@ body {
   flex-direction: column;
   text-shadow: 0 0 5px #fff; 
   background: rgba(0, 0, 0, 0);
-  position: relative;
-  z-index: 9999;
 }
 
 #box h1 {
