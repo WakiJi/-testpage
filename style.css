@@ -25,31 +25,31 @@ body {
 #box h1 {
     letter-spacing: 10px;
     font-weight: 500;
-    font-size: 1000000%;
+    font-size: 1000px;
     color: #fff;
 }
 #box h2 {
     letter-spacing: 5px;
     font-weight: 280;
-    font-size: 150%;
+    font-size: 150px;
     color: #ffffff;
 }
 #box h3 {
     letter-spacing: 1px;
     font-weight: 240;
-    font-size: 100%;
+    font-size: 100px;
     color: #ffffff;
 }
 #box h4 {
     letter-spacing: 1px;
     font-weight: 50;
-    font-size: 100%;
+    font-size: 100px;
     color: #ffffff;
 }
 #box h5 {           
     letter-spacing: 1px;                
     font-weight: 160;                
-    font-size: 100%;               
+    font-size: 100px;               
     color:#ffffff;
 }
 
