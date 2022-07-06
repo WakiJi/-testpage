@@ -1,53 +1,30 @@
 <!DOCTYPE html>
 
 <html>
-
-	<head>		<meta charset="utf-8">
-
+	<head>		
+		<meta charset="utf-8">
 		<title>倒计时</title>
-
 	</head>
-
 	<body>
-
 		<div>距离高考还有:
-
 			<span id="clock"></span>
-
 		</div>
-
-		
-
 		<script>
-
 //			指定日期倒计时:距离高考还有多久
-
 			var obj = document.getElementById("clock");
-
 			var endTime = new Date();
-
 			//设置月份5月1号，参数1十月份，月份是从0开始，参数2是天
-
 			//不清楚的可以去看看 http://www.runoob.com/jsref/jsref-setmonth.html
                         endTime.setYear(2022);
 			endTime.setMonth(5,7);
-
 			//设置小时，分钟，秒，毫秒
-
 			//不清楚的可以去看看 http://www.runoob.com/jsref/jsref-sethours.html
-
 			endTime.setHours(8,0,0,0);
-
 			//定时器一直重复执行
-
-			//不清除的可以去看看 http://www.runoob.com/jsref/met-win-setinterval.html
-
+			//不清楚的可以去看看 http://www.runoob.com/jsref/met-win-setinterval.html
 			window.setInterval(myFun,1);
-
 			function myFun(){
-
 				var startTime = new Date();
-
 //				思路很简单,用设置的未来时间5月1号减去现在的时间,然后转换成天数,小时,分钟,秒数
 
 				var num = endTime.getTime()-startTime.getTime();
