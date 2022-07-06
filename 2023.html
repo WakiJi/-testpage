@@ -212,27 +212,16 @@ function snow() {
         snow();
 </script>
         <div id="box">
-
             <h2>距离 2023 年高考还有</h2>
-
             <div id="time">
-
                 <strong><span id="day">**天</span></strong>
-
                 <strong><span id="hour">**时</span></strong>
-
                 <strong><span id="minute">**分</span></strong>
-
                 <strong><span id="second">**秒</span></strong>
-
             </div>
-
         <h3>！</h3>
-            
         <div id="box">
-
             <h5>Last Sync at 2023-01-01</h5>
-        
         </div>
         </div>
 </div>
@@ -249,46 +238,25 @@ function snow() {
         <script src="Timer.js"></script>
 
         <script>
-
             var daySpan = my$('day');
-
             var hourSpan = my$('hour');
-
             var minuteSpan = my$('minute');
-
             var secondSpan = my$('second');
-
             TimeRow();
-
             setInterval(TimeRow, 1000)
 
- 
-
             function TimeRow() {
-
                 var end = new Date('2023-06-07 09:00:00');
-
                 var start = new Date();
-
                 var time = getInterval(start, end);
-
                 setInnerText(daySpan, time.day+'天');
-
                 setInnerText(hourSpan, time.hour+'时');
-
                 setInnerText(minuteSpan, time.minute+'分');
-
                 setInnerText(secondSpan, time.second+'秒');
-
             }
 
         </script>
 
-
-
-
     </body>
-
- 
 
 </html>
