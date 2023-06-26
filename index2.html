@@ -212,7 +212,7 @@ function snow() {
         snow();
 </script>
         <div id="box">
-            <h2>距离 2023 年高考还有</h2>
+            <h2>距离 2024 年高考还有</h2>
             <div id="time">
                 <strong><span id="day">**天</span></strong>
                 <strong><span id="hour">**时</span></strong>
@@ -244,7 +244,7 @@ function snow() {
             TimeRow();
             setInterval(TimeRow, 1000)
             function TimeRow() {
-                var end = new Date('2023-06-07 09:00:00');
+                var end = new Date('2024-06-07 09:00:00');
                 var start = new Date();
                 var time = getInterval(start, end);
                 setInnerText(daySpan, time.day+'天');
