@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="UTF-8">
+        <title>高考倒计时</title>
+        <link rel="stylesheet" type="text/css" href="./style.css">
+    </head>
+<body>
+    <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+        <defs>
+            <radialGradient id="Gradient1" cx="50%" cy="50%" fx="50%" fy="50%" r=".5">
+                <animate attributeName="fx" dur="34s" values="0%;10%;0%" repeatCount="indefinite" />
+                <stop offset="0%" stop-color="rgba(255, 0, 255, 1)" />
+                <stop offset="100%" stop-color="rgba(255, 0, 255, 0)" />
+            </radialGradient>
+            <radialGradient id="Gradient2" cx="50%" cy="50%" fx="10%" fy="50%" r=".5">
+                <animate attributeName="fx" dur="23.5s" values="0%;50%;0%" repeatCount="indefinite" />
+                <stop offset="0%" stop-color="rgba(255, 255, 0, 1)" />
+                <stop offset="100%" stop-color="rgba(255, 255, 0, 0)" />
+            </radialGradient>
+            <radialGradient id="Gradient3" cx="50%" cy="50%" fx="50%" fy="50%" r=".5">
+                <animate attributeName="fx" dur="23.5s" values="0%;10%;0%" repeatCount="indefinite" />
+                <stop offset="0%" stop-color="rgba(0, 255, 255, 1)" />
+                <stop offset="100%" stop-color="rgba(0, 255, 255, 0)" />
+            </radialGradient>
+        </defs>
+        <rect x="0" y="0" width="100%" height="100%" fill="url(#Gradient1)">
+            <animate attributeName="x" dur="20s" values="0%;25%;0%" repeatCount="indefinite" />
+            <animate attributeName="y" dur="21s" values="0%;25%;0%" repeatCount="indefinite" />
+            <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="17s" repeatCount="indefinite" />
+        </rect>
+        <rect x="0" y="0" width="100%" height="100%" fill="url(#Gradient2)">
+            <animate attributeName="x" dur="23s" values="0%;-25%;0%" repeatCount="indefinite" />
+            <animate attributeName="y" dur="24s" values="0%;-25%;0%" repeatCount="indefinite" />
+            <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="18s" repeatCount="indefinite" />
+        </rect>
+        <rect x="0" y="0" width="100%" height="100%" fill="url(#Gradient3)">
+            <animate attributeName="x" dur="25s" values="0%;-25%;0%" repeatCount="indefinite" />
+            <animate attributeName="y" dur="26s" values="0%;25%;0%" repeatCount="indefinite" />
+            <animateTransform attributeName="transform" type="rotate" from="360 50 50" to="0 50 50" dur="19s" repeatCount="indefinite" />
+        </rect>
+    </svg>
+    <div id="box">
+        <h2>距离 2024 年 9 月计算机二级考试还有</h2>
+        <div id="time">
+            <strong><span id="day">**天</span></strong>
+            <strong><span id="hour">**时</span></strong>
+            <strong><span id="minute">**分</span></strong>
+            <strong><span id="second">**秒</span></strong>
+        </div>
+        <h3>Nothing Here.</h3>
+        <p></p>
+        <h5>Last Sync at 2024-9-20</h5>
+        <p></p>    
+        <h5>Powered By Waki@Github.</h5>
+        <p></p>
+    </div>
+</body>
+
+
+
+
+<!---- <script>
+function snow() {
+            //  1、定义一片雪花模板
+            var flake = document.creatediv('div');
+            // 雪花字符 ❄️❄️❄️❄️❄️❄️❄️❄️
+            flake.innerHTML = '🥰';
+            flake.style.cssText = 'position:absolute;color:#fff;';
+
+            //获取页面的高度 相当于雪花下落结束时Y轴的位置
+            var documentHieght = window.innerHeight;
+            //获取页面的宽度，利用这个数来算出，雪花开始时left的值
+            var documentWidth = window.innerWidth;
+
+            //定义生成一片雪花的毫秒数
+            var millisec =10;
+            //2、设置第一个定时器，周期性定时器，每隔一段时间（millisec）生成一片雪花；
+            setInterval(function() { //页面加载之后，定时器就开始工作
+                //随机生成雪花下落 开始 时left的值，相当于开始时X轴的位置
+                var startLeft = Math.random() * documentWidth;
+
+                //随机生成雪花下落 结束 时left的值，相当于结束时X轴的位置
+                var endLeft = Math.random() * documentWidth;
+
+                //随机生成雪花大小
+                var flakeSize =15 + 20 * Math.random();
+
+                //随机生成雪花下落持续时间
+                var durationTime = 4000 + 7000 * Math.random();
+
+                //随机生成雪花下落 开始 时的透明度
+                var startOpacity = 0.7 + 0.3 * Math.random();
+
+                //随机生成雪花下落 结束 时的透明度
+                var endOpacity = 0.2 + 0.2 * Math.random();
+
+                //克隆一个雪花模板
+                var cloneFlake = flake.cloneNode(true);
+
+                //第一次修改样式，定义克隆出来的雪花的样式
+                cloneFlake.style.cssText += `
+                        left: ${startLeft}px;
+                        opacity: ${startOpacity};
+                        font-size:${flakeSize}px;
+                        top:-25px;
+                            transition:${durationTime}ms;`;
+
+                //拼接到页面中
+                document.body.appendChild(cloneFlake);
+
+                //设置第二个定时器，一次性定时器，
+                //当第一个定时器生成雪花，并在页面上渲染出来后，修改雪花的样式，让雪花动起来；
+                setTimeout(function() {
+                    //第二次修改样式
+                    cloneFlake.style.cssText += `
+                                left: ${endLeft}px;
+                                top:${documentHieght}px;
+                                opacity:${endOpacity};`;
+
+                    //4、设置第三个定时器，当雪花落下后，删除雪花。
+                    setTimeout(function() {
+                        cloneFlake.remove();
+                    }, durationTime);
+                }, 0);
+
+            }, millisec);
+        }
+        snow();
+</script> -----!>
+
+        <!-- Cloudflare Web Analytics -->
+
+        <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eca3660b876b42d191ffcec642e6e078"}'></script>
+
+        <!-- End Cloudflare Web Analytics -->
+
+        <script src="Timer.js"></script>
+        <script>
+            var daySpan = my$('day');
+            var hourSpan = my$('hour');
+            var minuteSpan = my$('minute');
+            var secondSpan = my$('second');
+            TimeRow();
+            setInterval(TimeRow, 1000)
+            function TimeRow() {
+                var end = new Date('2024-09-21 13:00:00');
+                var start = new Date();
+                var time = getInterval(start, end);
+                setInnerText(daySpan, time.day+'天');
+                setInnerText(hourSpan, time.hour+'时');
+                setInnerText(minuteSpan, time.minute+'分');
+                setInnerText(secondSpan, time.second+'秒');
+            }
+        </script>
+    </body>
+</html>
