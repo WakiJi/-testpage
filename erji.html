@@ -41,7 +41,7 @@
         </rect>
     </svg>
     <div id="box">
-        <h2>距离 2024 年 9 月计算机二级考试还有</h2>
+        <h2> 2024 年 9 月计算机二级考试已经过去了</h2>
         <div id="time">
             <strong><span id="day">**天</span></strong>
             <strong><span id="hour">**时</span></strong>
@@ -144,8 +144,8 @@ function snow() {
             TimeRow();
             setInterval(TimeRow, 1000)
             function TimeRow() {
-                var end = new Date('2024-09-21 13:00:00');
-                var start = new Date();
+                var end = new Date();
+                var start = new Date('2024-09-21 13:00:00');
                 var time = getInterval(start, end);
                 setInnerText(daySpan, time.day+'天');
                 setInnerText(hourSpan, time.hour+'时');
