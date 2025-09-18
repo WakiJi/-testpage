@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-    <head>
-        <meta charset="UTF-8">
-        <title>高考倒计时</title>
-        <link rel="stylesheet" type="text/css" href="./style.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <title>高考倒计时</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
 <body>
     <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
         <defs>
@@ -41,117 +41,87 @@
         </rect>
     </svg>
     <div id="box">
-        <h2>距离 2025 年高考还有</h2>
+        <h2 id="countdownTitle">距离 2025 年高考还有</h2>
         <div id="time">
             <strong><span id="day">**天</span></strong>
             <strong><span id="hour">**时</span></strong>
             <strong><span id="minute">**分</span></strong>
             <strong><span id="second">**秒</span></strong>
         </div>
-        <h3>Nothing Here.</h3>
+        <h3 id="message">Nothing Here.</h3>
         <p></p>
-        <h5>Last Sync at 2022-07-06</h5>
-        <p></p>    
-        <h5>Powered By Waki@Github.</h5>
+        <h5 id="lastSync">Last Sync at 2025-09-18</h5>
+        <p></p>
+        <h5 id="poweredBy">Powered By Waki@Github.</h5>
         <p></p>
     </div>
-</body>
 
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eca3660b876b42d191ffcec642e6e078"}'></script>
+    <script src="Timer.js"></script>
 
+    <script>
+        // 高考日期通常为每年的6月7日
+        const GAOKAO_MONTH = 5; // JavaScript月份从0开始，5代表6月
+        const GAOKAO_DAY = 7;
+        const GAOKAO_HOUR = 9; // 高考通常从上午9点开始
 
+        // 获取DOM元素
+        const daySpan = my$('day');
+        const hourSpan = my$('hour');
+        const minuteSpan = my$('minute');
+        const secondSpan = my$('second');
+        const messageH3 = my$('message');
+        const countdownTitleH2 = my$('countdownTitle');
+        const timeDiv = my$('time');
 
-<!---- <script>
-function snow() {
-            //  1、定义一片雪花模板
-            var flake = document.creatediv('div');
-            // 雪花字符 ❄️❄️❄️❄️❄️❄️❄️❄️
-            flake.innerHTML = '🥰';
-            flake.style.cssText = 'position:absolute;color:#fff;';
+        function updateCountdown() {
+            const now = new Date();
+            let targetYear = now.getFullYear();
+            const gaokaoDateThisYear = new Date(targetYear, GAOKAO_MONTH, GAOKAO_DAY, GAOKAO_HOUR, 0, 0, 0);
 
-            //获取页面的高度 相当于雪花下落结束时Y轴的位置
-            var documentHieght = window.innerHeight;
-            //获取页面的宽度，利用这个数来算出，雪花开始时left的值
-            var documentWidth = window.innerWidth;
-
-            //定义生成一片雪花的毫秒数
-            var millisec =10;
-            //2、设置第一个定时器，周期性定时器，每隔一段时间（millisec）生成一片雪花；
-            setInterval(function() { //页面加载之后，定时器就开始工作
-                //随机生成雪花下落 开始 时left的值，相当于开始时X轴的位置
-                var startLeft = Math.random() * documentWidth;
-
-                //随机生成雪花下落 结束 时left的值，相当于结束时X轴的位置
-                var endLeft = Math.random() * documentWidth;
-
-                //随机生成雪花大小
-                var flakeSize =15 + 20 * Math.random();
-
-                //随机生成雪花下落持续时间
-                var durationTime = 4000 + 7000 * Math.random();
-
-                //随机生成雪花下落 开始 时的透明度
-                var startOpacity = 0.7 + 0.3 * Math.random();
-
-                //随机生成雪花下落 结束 时的透明度
-                var endOpacity = 0.2 + 0.2 * Math.random();
-
-                //克隆一个雪花模板
-                var cloneFlake = flake.cloneNode(true);
-
-                //第一次修改样式，定义克隆出来的雪花的样式
-                cloneFlake.style.cssText += `
-                        left: ${startLeft}px;
-                        opacity: ${startOpacity};
-                        font-size:${flakeSize}px;
-                        top:-25px;
-                            transition:${durationTime}ms;`;
-
-                //拼接到页面中
-                document.body.appendChild(cloneFlake);
-
-                //设置第二个定时器，一次性定时器，
-                //当第一个定时器生成雪花，并在页面上渲染出来后，修改雪花的样式，让雪花动起来；
-                setTimeout(function() {
-                    //第二次修改样式
-                    cloneFlake.style.cssText += `
-                                left: ${endLeft}px;
-                                top:${documentHieght}px;
-                                opacity:${endOpacity};`;
-
-                    //4、设置第三个定时器，当雪花落下后，删除雪花。
-                    setTimeout(function() {
-                        cloneFlake.remove();
-                    }, durationTime);
-                }, 0);
-
-            }, millisec);
-        }
-        snow();
-</script> -----!>
-
-        <!-- Cloudflare Web Analytics -->
-
-        <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eca3660b876b42d191ffcec642e6e078"}'></script>
-
-        <!-- End Cloudflare Web Analytics -->
-
-        <script src="Timer.js"></script>
-        <script>
-            var daySpan = my$('day');
-            var hourSpan = my$('hour');
-            var minuteSpan = my$('minute');
-            var secondSpan = my$('second');
-            TimeRow();
-            setInterval(TimeRow, 1000)
-            function TimeRow() {
-                var end = new Date('2025-06-07 09:00:00');
-                var start = new Date();
-                var time = getInterval(start, end);
-                setInnerText(daySpan, time.day+'天');
-                setInnerText(hourSpan, time.hour+'时');
-                setInnerText(minuteSpan, time.minute+'分');
-                setInnerText(secondSpan, time.second+'秒');
+            // If the current time is past this year's Gaokao, set the target year to the next one.
+            if (now.getTime() > gaokaoDateThisYear.getTime()) {
+                targetYear++;
             }
-        </script>
-    </body>
+
+            const gaokaoDate = new Date(targetYear, GAOKAO_MONTH, GAOKAO_DAY, GAOKAO_HOUR, 0, 0, 0);
+
+            // Handle the special cases for during and after the Gaokao.
+            const oneDayInMs = 24 * 60 * 60 * 1000;
+            const gaokaoEndDay = new Date(gaokaoDateThisYear.getTime() + 2 * oneDayInMs); // Assuming Gaokao lasts two days.
+
+            // Check the current date against the Gaokao dates.
+            if (now.getDate() === GAOKAO_DAY && now.getMonth() === GAOKAO_MONTH) {
+                // High school entrance examination on the same day
+                timeDiv.style.display = 'none';
+                setInnerText(countdownTitleH2, "今天是高考日，祝所有考生旗开得胜！");
+                setInnerText(messageH3, "");
+            } else if (now.getTime() > gaokaoDateThisYear.getTime() && now.getTime() < gaokaoEndDay.getTime()) {
+                // Gaokao is in progress
+                timeDiv.style.display = 'none';
+                setInnerText(countdownTitleH2, "高考正在进行中，祝所有考生旗开得胜！");
+                setInnerText(messageH3, "");
+            } else if (now.getTime() >= gaokaoEndDay.getTime()) {
+                // Gaokao has ended
+                timeDiv.style.display = 'none';
+                setInnerText(countdownTitleH2, "高考已结束，祝各位考生金榜题名！");
+                setInnerText(messageH3, "");
+            } else {
+                // Normal countdown
+                timeDiv.style.display = 'flex';
+                setInnerText(countdownTitleH2, `距离 ${targetYear} 年高考还有`);
+                const time = getInterval(now, gaokaoDate);
+                setInnerText(daySpan, time.day + '天');
+                setInnerText(hourSpan, time.hour + '时');
+                setInnerText(minuteSpan, time.minute + '分');
+                setInnerText(secondSpan, time.second + '秒');
+                setInnerText(messageH3, "Nothing Here.");
+            }
+        }
+
+        // Run the function once immediately, then update every second.
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
 </html>

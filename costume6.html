@@ -1,173 +1,198 @@
 <!DOCTYPE html>
-
 <html lang="zh-cn">
-    <head>
-        <meta charset="UTF-8">
-        <title>高考倒计时</title>
-        <style>
-            body{
-                background: #000;
-                font-family: "HarmonyOS Sans","Microsoft YaHei";
-            }
-            #box {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;
-            }
-            #box h1 {
-                letter-spacing: 10px;
-                font-weight: 500;
-                font-size: 110px;
-                color: #ffffff;
-            }
-            #box h2 {
-                letter-spacing: 5px;
-                font-weight: 280;
-                font-size: 40px;
-                color: #ffffff;
-            }
-            #box h3 {
-                letter-spacing: 0px;
-                font-weight: 100;
-                font-size: 20px;
-                color: #ffffff;
-            }
-            #box h4 {
-                letter-spacing: 0px;
-                font-weight: 50;
-                font-size: 10px;
-                color: #ffffff;
-            }
-            #time {
-                display: flex;
-                flex-direction: row;
-                line-height: 115px;
-            }
-            #time span {
-                font-size: 80px;
-                color: #fff;
-            }
-            #time strong {
-                text-align: center;
-                margin-left: 40px;
-                background-color: #3f5174;
-                border-radius: 25px;
-                width: 280px;
-                height: 120px;
-                display: block;
-            }
-            .container {	
-		height: 100%;
-		display: block;	
-		margin: auto;
-		position: relative;	
-            }
-</style>
-	    
-<div class="container">
-    <svg xmlns="https://www.w3.org/2000/svg" width="100%" height="100%">
-        <defs>
-            <filter id="b">
-                <feGaussianBlur stdDeviation="28.6" />
-            </filter>
-            <radialGradient id="l" cx="50%" cy="0%" fy="-50%" r="82%">
-                <stop offset="40%" style="stop-color:#fff; stop-opacity:1;" />
-                <stop offset="90%" style="stop-color:#fff; stop-opacity:.5;" />
-                <stop offset="100%" style="stop-color:#fff; stop-opacity:0" />
-            </radialGradient>
-            <radialGradient id="l2" cx="50%" cy="0%" fy="-45%" r="75%">
-                <stop offset="40%" style="stop-color:#fff; stop-opacity:1;" />
-                <stop offset="90%" style="stop-color:#fff; stop-opacity:.5;" />
-                <stop offset="100%" style="stop-color:#fff; stop-opacity:0" />
-            </radialGradient>
-            <radialGradient id="l3" cx="50%" cy="0%" fy="-40%" r="65%">
-                <stop offset="40%" style="stop-color:#fff; stop-opacity:1;" />
-                <stop offset="90%" style="stop-color:#fff; stop-opacity:.5;" />
-                <stop offset="100%" style="stop-color:#fff; stop-opacity:0" />
-            </radialGradient>
-            <linearGradient id="r" x2="100%" y2="0">
-                <stop offset="0%" style="stop-color:#860d0d;" />
-                <stop offset="33%" style="stop-color:#10689f;" />
-                <stop offset="66%" style="stop-color:#dad716;" />
-                <stop offset="100%" style="stop-color:#d20000;" />
-            </linearGradient>
-            <mask id="m" maskUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%">
-                <g filter="url(#b)">
-                    <rect width="5%" height="100%" fill="url(#l)" />
-                    <rect x="5%" width="5%" height="100%" fill="url(#l)" />
-                    <rect x="10%" width="5%" height="100%" fill="url(#l3)" />
-                    <rect x="15%" width="5%" height="100%" fill="url(#l2)" />
-                    <rect x="20%" width="5%" height="100%" fill="url(#l3)" />
-                    <rect x="25%" width="5%" height="100%" fill="url(#l)" />
-                    <rect x="30%" width="5%" height="100%" fill="url(#l2)" />
-                    <rect x="35%" width="5%" height="100%" fill="url(#l)" />
-                    <rect x="40%" width="5%" height="100%" fill="url(#l2)" />
-                    <rect x="45%" width="5%" height="100%" fill="url(#l3)" />
-                    <rect x="50%" width="5%" height="100%" fill="url(#l2)" />
-                    <rect x="55%" width="5%" height="100%" fill="url(#l)" />
-                    <rect x="60%" width="5%" height="100%" fill="url(#l3)" />
-                    <rect x="65%" width="5%" height="100%" fill="url(#l)" />
-                    <rect x="70%" width="5%" height="100%" fill="url(#l2)" />
-                    <rect x="75%" width="5%" height="100%" fill="url(#l2)" />
-                    <rect x="80%" width="5%" height="100%" fill="url(#l3)" />
-                    <rect x="85%" width="5%" height="100%" fill="url(#l)" />
-                    <rect x="90%" width="5%" height="100%" fill="url(#l2)" />
-                    <rect x="95%" width="5%" height="100%" fill="url(#l3)" />
-                </g>
-            </mask>
-        </defs>
-        <rect fill="url(#r)" width="100%" height="100%" mask="url(#m)" />
-    </svg>
-</div>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    </head>
-	
-        <div id="box">
-            <h1>距离 2025 年高考还有</h1>
-            <p></p>
-            <p></p>
-            <div id="time">
-                <strong><span id="day">**天</span></strong>
-                <strong><span id="hour">**时</span></strong>
-                <strong><span id="minute">**分</span></strong>
-                <strong><span id="second">**秒</span></strong>
-            </div>
-        <p></p>
-        <div id="box">
-            <h2>May all the beauty be blessed.</h2>
-            <h2>Customized for 6</h2>
-            <h3>Last Sync at 2022-07-06 19:14:01</h3>
-            <h3>Powered by Waki@Github.</h3>
+<head>
+    <meta charset="UTF-8">
+    <title>高考倒计时</title>
+    <style>
+        body {
+            background: #000;
+            font-family: "HarmonyOS Sans", "Microsoft YaHei";
+        }
+
+        #box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #box h1 {
+            letter-spacing: 10px;
+            font-weight: 500;
+            font-size: 110px;
+            color: #ffffff;
+        }
+
+        #box h2 {
+            letter-spacing: 5px;
+            font-weight: 280;
+            font-size: 40px;
+            color: #ffffff;
+        }
+
+        #box h3 {
+            letter-spacing: 0px;
+            font-weight: 100;
+            font-size: 20px;
+            color: #ffffff;
+        }
+
+        #box h4 {
+            letter-spacing: 0px;
+            font-weight: 50;
+            font-size: 10px;
+            color: #ffffff;
+        }
+
+        #time {
+            display: flex;
+            flex-direction: row;
+            line-height: 115px;
+        }
+
+        #time span {
+            font-size: 80px;
+            color: #fff;
+        }
+
+        #time strong {
+            text-align: center;
+            margin-left: 40px;
+            background-color: #3f5174;
+            border-radius: 25px;
+            width: 280px;
+            height: 120px;
+            display: block;
+        }
+
+        .container {
+            height: 100%;
+            display: block;
+            margin: auto;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+            <defs>
+                <radialGradient id="Gradient1" cx="50%" cy="50%" fx="50%" fy="50%" r=".5">
+                    <animate attributeName="fx" dur="34s" values="0%;10%;0%" repeatCount="indefinite" />
+                    <stop offset="0%" stop-color="rgba(255, 0, 255, 1)" />
+                    <stop offset="100%" stop-color="rgba(255, 0, 255, 0)" />
+                </radialGradient>
+                <radialGradient id="Gradient2" cx="50%" cy="50%" fx="10%" fy="50%" r=".5">
+                    <animate attributeName="fx" dur="23.5s" values="0%;50%;0%" repeatCount="indefinite" />
+                    <stop offset="0%" stop-color="rgba(255, 255, 0, 1)" />
+                    <stop offset="100%" stop-color="rgba(255, 255, 0, 0)" />
+                </radialGradient>
+                <radialGradient id="Gradient3" cx="50%" cy="50%" fx="50%" fy="50%" r=".5">
+                    <animate attributeName="fx" dur="23.5s" values="0%;10%;0%" repeatCount="indefinite" />
+                    <stop offset="0%" stop-color="rgba(0, 255, 255, 1)" />
+                    <stop offset="100%" stop-color="rgba(0, 255, 255, 0)" />
+                </radialGradient>
+            </defs>
+            <rect x="0" y="0" width="100%" height="100%" fill="url(#Gradient1)">
+                <animate attributeName="x" dur="20s" values="0%;25%;0%" repeatCount="indefinite" />
+                <animate attributeName="y" dur="21s" values="0%;25%;0%" repeatCount="indefinite" />
+                <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="17s" repeatCount="indefinite" />
+            </rect>
+            <rect x="0" y="0" width="100%" height="100%" fill="url(#Gradient2)">
+                <animate attributeName="x" dur="23s" values="0%;-25%;0%" repeatCount="indefinite" />
+                <animate attributeName="y" dur="24s" values="0%;-25%;0%" repeatCount="indefinite" />
+                <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="18s" repeatCount="indefinite" />
+            </rect>
+            <rect x="0" y="0" width="100%" height="100%" fill="url(#Gradient3)">
+                <animate attributeName="x" dur="25s" values="0%;-25%;0%" repeatCount="indefinite" />
+                <animate attributeName="y" dur="26s" values="0%;25%;0%" repeatCount="indefinite" />
+                <animateTransform attributeName="transform" type="rotate" from="360 50 50" to="0 50 50" dur="19s" repeatCount="indefinite" />
+            </rect>
+        </svg>
+    </div>
+
+    <div id="box">
+        <h1 id="countdownTitle">距离 2026 年高考还有</h1>
+        <div id="time">
+            <strong><span id="day">**天</span></strong>
+            <strong><span id="hour">**时</span></strong>
+            <strong><span id="minute">**分</span></strong>
+            <strong><span id="second">**秒</span></strong>
         </div>
+        <h3 id="message"></h3>
+        <h5 id="lastSync">Last Sync at 2025-09-18 12:19:39</h5>
+        <h5 id="poweredBy">Powered by Waki@Github.</h5>
+    </div>
 
-        <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eca3660b876b42d191ffcec642e6e078"}'></script>
+    <script src="Timer.js"></script>
 
-        <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eca3660b876b42d191ffcec642e6e078"}'></script>
+    <script>
+        // 高考日期通常为每年的6月7日
+        const GAOKAO_MONTH = 5; // JavaScript months are 0-indexed, so 5 is June.
+        const GAOKAO_DAY = 7;
+        const GAOKAO_HOUR = 9; // Gaokao usually starts at 9 AM.
 
-        <!-- End Cloudflare Web Analytics -->
+        // 获取DOM元素
+        const daySpan = my$('day');
+        const hourSpan = my$('hour');
+        const minuteSpan = my$('minute');
+        const secondSpan = my$('second');
+        const messageH3 = my$('message');
+        const countdownTitleH1 = my$('countdownTitle');
+        const timeDiv = my$('time');
 
-        <script src="Timer.js"></script>
-        <script>
-            var daySpan = my$('day');
-            var hourSpan = my$('hour');
-            var minuteSpan = my$('minute');
-            var secondSpan = my$('second');
-            TimeRow();
-            setInterval(TimeRow, 1000)
+        function updateCountdown() {
+            const now = new Date();
+            let targetYear = now.getFullYear();
+            const gaokaoDateThisYear = new Date(targetYear, GAOKAO_MONTH, GAOKAO_DAY, GAOKAO_HOUR, 0, 0, 0);
 
-            function TimeRow() {
-                var end = new Date('2025-06-07 09:00:00');
-                var start = new Date();
-                var time = getInterval(start, end);
-                setInnerText(daySpan, time.day+'天');
-                setInnerText(hourSpan, time.hour+'时');
-                setInnerText(minuteSpan, time.minute+'分');
-                setInnerText(secondSpan, time.second+'秒');
+            // If the current time is past this year's Gaokao, set the target year to the next one.
+            if (now.getTime() > gaokaoDateThisYear.getTime()) {
+                targetYear++;
             }
-        </script>
 
-    </body>
+            const gaokaoDate = new Date(targetYear, GAOKAO_MONTH, GAOKAO_DAY, GAOKAO_HOUR, 0, 0, 0);
+
+            // Handle the special cases for during and after the Gaokao.
+            const oneDayInMs = 24 * 60 * 60 * 1000;
+            const gaokaoEndDay = new Date(gaokaoDateThisYear.getTime() + 2 * oneDayInMs); // Assuming Gaokao lasts two days.
+
+            // Check the current date against the Gaokao dates.
+            if (now.getDate() === GAOKAO_DAY && now.getMonth() === GAOKAO_MONTH) {
+                // High school entrance examination on the same day
+                timeDiv.style.display = 'none';
+                setInnerText(countdownTitleH1, "今天是高考日，祝所有考生旗开得胜！");
+                setInnerText(messageH3, "");
+            } else if (now.getTime() > gaokaoDateThisYear.getTime() && now.getTime() < gaokaoEndDay.getTime()) {
+                // Gaokao is in progress
+                timeDiv.style.display = 'none';
+                setInnerText(countdownTitleH1, "高考正在进行中，祝所有考生旗开得胜！");
+                setInnerText(messageH3, "");
+            } else if (now.getTime() >= gaokaoEndDay.getTime()) {
+                // Gaokao has ended
+                timeDiv.style.display = 'none';
+                setInnerText(countdownTitleH1, "高考已结束，祝各位考生金榜题名！");
+                setInnerText(messageH3, "");
+            } else {
+                // Normal countdown
+                timeDiv.style.display = 'flex';
+                setInnerText(countdownTitleH1, `距离 ${targetYear} 年高考还有`);
+                const time = getInterval(now, gaokaoDate);
+                setInnerText(daySpan, time.day + '天');
+                setInnerText(hourSpan, time.hour + '时');
+                setInnerText(minuteSpan, time.minute + '分');
+                setInnerText(secondSpan, time.second + '秒');
+                setInnerText(messageH3, "Nothing Here.");
+            }
+        }
+
+        // Run the function once immediately, then update every second.
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
 
 </html>

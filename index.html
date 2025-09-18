@@ -9,32 +9,57 @@
 		<div>距离高考还有:
 			<span id="clock"></span>
 		</div>
-		<script>
-//			指定日期倒计时:距离高考还有多久
-			var obj = document.getElementById("clock");
-			var endTime = new Date();
-			//设置月份5月1号，参数1十月份，月份是从0开始，参数2是天
-			//不清楚的可以去看看 http://www.runoob.com/jsref/jsref-setmonth.html
-            	endTime.setYear(2025);
-				endTime.setMonth(5,8);
-			//设置小时，分钟，秒，毫秒
-			//不清楚的可以去看看 http://www.runoob.com/jsref/jsref-sethours.html
-				endTime.setHours(8,0,0,0);
-			//定时器一直重复执行
-			//不清楚的可以去看看 http://www.runoob.com/jsref/met-win-setinterval.html
-			window.setInterval(myFun,1);
-			function myFun(){
-				var startTime = new Date();
-//				思路很简单,用设置的未来时间5月1号减去现在的时间,然后转换成天数,小时,分钟,秒数
-				var num = endTime.getTime()-startTime.getTime();
-				var day = parseInt(num/1000/60/60/24);
-				var hh = parseInt((num/1000/60/60/24 - day)*24)
-				var mm = parseInt(((num/1000/60/60/24 - day)*24-hh)*60)
-				var ss = parseInt((((num/1000/60/60/24 - day)*24-hh)*60-mm)*60)
-				var ms = num % 1000
-				obj.innerHTML = day + "天" + hh + "小时" + mm + "分钟" + ss + "秒" + ms + "毫秒";
-			}
-		</script>
+		 <script>
+            // 高考日期通常为每年的6月7日
+            const G_KAO_MONTH = 5; // JavaScript月份从0开始，5代表6月
+            const G_KAO_DAY = 7;
+            const G_KAO_HOUR = 9; // 高考通常从上午9点开始
+
+            function updateCountdown() {
+                const now = new Date();
+                let targetYear = now.getFullYear();
+                const gKaoDateThisYear = new Date(targetYear, G_KAO_MONTH, G_KAO_DAY, G_KAO_HOUR, 0, 0, 0);
+
+                // 如果当前时间已过当年的高考，则将目标年份设置为下一年
+                if (now > gKaoDateThisYear) {
+                    targetYear++;
+                }
+
+                const gKaoDate = new Date(targetYear, G_KAO_MONTH, G_KAO_DAY, G_KAO_HOUR, 0, 0, 0);
+                const timeLeft = gKaoDate.getTime() - now.getTime();
+
+                const clockElement = document.getElementById("clock");
+
+                // 高考当天及之后几天的情况处理
+                const oneDayInMs = 24 * 60 * 60 * 1000;
+                const gKaoEndDay = new Date(gKaoDate.getTime() + 2 * oneDayInMs); // 假设高考持续两天
+
+                if (now.getDate() === G_KAO_DAY && now.getMonth() === G_KAO_MONTH) {
+                    clockElement.innerHTML = "今天就是高考日，加油！";
+                } else if (now > gKaoDate && now < gKaoEndDay) {
+                    clockElement.innerHTML = "高考正在进行中，祝所有考生旗开得胜！";
+                } else if (now >= gKaoEndDay && now < gKaoEndDay.getTime() + 2 * oneDayInMs) {
+                    clockElement.innerHTML = "高考已结束，祝各位考生金榜题名！";
+                } else if (timeLeft <= 0) {
+                    // 确保在特殊情况下，倒计时不会显示负数
+                    clockElement.innerHTML = "高考已结束。";
+                } else {
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                    const milliseconds = timeLeft % 1000;
+
+                    clockElement.innerHTML = `${days}天 ${hours}小时 ${minutes}分钟 ${seconds}秒 ${milliseconds}毫秒`;
+                }
+            }
+
+            // 使用 setInterval 每毫秒更新一次
+            setInterval(updateCountdown, 1);
+
+            // 首次加载页面时立即运行一次，避免初始空白
+            updateCountdown();
+        </script>
 		<!-- Cloudflare Web Analytics -->
 
 		<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eca3660b876b42d191ffcec642e6e078"}'></script>
